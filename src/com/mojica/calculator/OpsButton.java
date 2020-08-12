@@ -1,3 +1,6 @@
+/*
+* Buttons for operators such as +, -, x, /, = along with C, DEL
+* */
 package com.mojica.calculator;
 
 import javax.swing.*;

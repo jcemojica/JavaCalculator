@@ -1,10 +1,11 @@
-package com.mojica.calculator;
+/*
+* Class for the arithmetic; should ideally consume the API
+* */
 
-import javax.swing.*;
+package com.mojica.calculator;
 
 public class Calculator {
     private double total;
-    private JButton lastClicked;
 
     public double getTotal() {
         return total;
@@ -14,5 +15,19 @@ public class Calculator {
         this.total = total;
     }
 
+    public double add(double b){
+        return this.total + b;
+    }
 
+    public double subtract(double b){
+        return this.total - b;
+    }
+
+    public double multiply(double b){
+        return this.total * b;
+    }
+
+    public double divide(double b){
+        return this.total / b;
+    }
 }

@@ -1,3 +1,7 @@
+/*
+* Buttons for numbers 0-9
+* */
+
 package com.mojica.calculator;
 
 import javax.swing.*;

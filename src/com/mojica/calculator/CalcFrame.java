@@ -1,5 +1,5 @@
 /*
-*
+* Main frame of the GUI of the calculator
 */
 package com.mojica.calculator;
 
@@ -9,12 +9,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static java.lang.Integer.parseInt;
-
 public class CalcFrame extends JFrame implements ActionListener {
     private final int CALC_FRAME_WIDTH = 400;
     private final int CALC_FRAME_HEIGHT = 550;
 
+    private Calculator calc;
     private Container container;
 
     //will display the numbers currently being worked on
@@ -47,6 +46,8 @@ public class CalcFrame extends JFrame implements ActionListener {
         container.add(buffPanel);
         container.add(inputPanel);
         container.add(buttonPanel);
+
+        calc = new Calculator();
 
         pack();
         setVisible(true);
@@ -175,6 +176,24 @@ public class CalcFrame extends JFrame implements ActionListener {
                     label = inputLabel.getText() + btnClicked.getText();
                 inputLabel.setText(label);
                 buffLabel.setText(label);
+            } else {
+                Double b = Double.parseDouble(btnClicked.getText());
+
+                switch(lastBtnClicked.getText()){
+                    case "+":
+                        calc.setTotal(calc.add(b));
+                        break;
+                    case "-":
+                        calc.setTotal(calc.subtract(b));
+                        break;
+                    case "x":
+                        calc.setTotal(calc.multiply(b));
+                        break;
+                    case "/":
+                        calc.setTotal(calc.divide(b));
+                        break;
+                    default: break;
+                }
             }
             lastBtnClicked = btnClicked;
         } else {
